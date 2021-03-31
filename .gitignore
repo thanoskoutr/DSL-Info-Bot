@@ -1,0 +1,8 @@
+# Ignore Virtual Environment
+env
+
+# Dotenv Variables
+.env
+
+# Python Cache
+__pycache__
