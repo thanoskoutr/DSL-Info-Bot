@@ -32,7 +32,7 @@ if __name__ == "__main__":
         dsl_link_info.internet_page('internet')
     except TimeoutException:
         print('Time out waiting for Internet page to load.')
-        sys.exit(-1)
+        sys.exit(1)
 
     # Get DSL Link Info
     try:
@@ -40,7 +40,7 @@ if __name__ == "__main__":
         # print(values)
     except TimeoutException:
         print('Time out waiting for DSL Link Info page to load.')
-        sys.exit(-1)
+        sys.exit(1)
 
     # Save DSL Link Info
     dir_path = Path(__file__).parent.absolute()
