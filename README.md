@@ -108,7 +108,8 @@ crontab -e
 
 Run script every 5 minutes:
 ```bash
-*/5 * * * * python3 /path/to/DSL-Info-Bot/main.py
+*/5 * * * * export PATH="/usr/local/bin:$PATH" && python3 /path/to/DSL-Info-Bot/main.py
 ```
+We export the `PATH` variable in order for cron to be able to find the driver.
 
 The `dsl-info.csv` file should be created or updated in the repo directory.
