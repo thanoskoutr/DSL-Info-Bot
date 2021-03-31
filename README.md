@@ -26,6 +26,12 @@ cd DSL-Info-Bot
 
 ### Python Virtual Environment
 
+#### Install venv
+On Debian/Ubuntu systems, you need to install the `python3-venv` package using the following command:
+```bash
+sudo apt-get install python3-venv
+```
+
 #### Create virtual environment
 Create a virtual environment on the top directory of the project:
 ```bash
@@ -43,6 +49,8 @@ python3 -m pip install -r requirements.txt
 # or
 pip3 install -r requirements.txt
 ```
+Minimum Python version tested: `Python 3.6.9`
+Maximum Python version tested: `Python 3.8.5`
 
 ### Download Web-Driver for Selenium
 Selenium requires a driver to interface with the chosen browser. For this project the Chrome driver is used in *headless* mode in order to not require a GUI.
@@ -61,9 +69,23 @@ sudo apt install ./google-chrome-stable_current_amd64.deb
 ```
 
 #### Download Chrome Driver
-Download the chrome browser driver, based on the installed chromium version in your system:
+Download the chrome browser driver, based on the installed chromium version in your system from this link: 
+
+https://sites.google.com/a/chromium.org/chromedriver/downloads
+
+Check Chrome version:
 ```bash
-wget https://sites.google.com/a/chromium.org/chromedriver/downloads
+google-chrome --version
+```
+
+For the Chrome version 89 driver, for Linux 64-bit, download with:
+```bash
+wget https://chromedriver.storage.googleapis.com/89.0.4389.23/chromedriver_linux64.zip
+```
+
+Extract the driver, using `unzip`:
+```bash
+unzip chromedriver_linux64.zip
 ```
 
 #### Add driver to PATH
@@ -82,7 +104,7 @@ sudo mv chromedriver /usr/local/bin
 ### Add Environmental Variables
 Create the `.env` file from `.env-test`:
 ```bash
-mv .env-test .env
+cp .env-test .env
 ```
 
 Fill in the environmental variables needed:
@@ -90,6 +112,11 @@ Fill in the environmental variables needed:
 - Router's Username
 - Router's Password
 
+```bash
+ROUTER_PAGE=http://192.168.1.1/
+ROUTER_USERNAME=username
+ROUTER_PASSWORD=password
+```
 
 ### Run Program
 From the project's top directory, run:
