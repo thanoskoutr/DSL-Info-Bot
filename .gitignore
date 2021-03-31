@@ -6,3 +6,12 @@ env
 
 # Python Cache
 __pycache__
+
+# CSV file with data
+dsl_info.csv
+
+# Ignore docs
+docs
+
+# Ignore other code
+old-code
