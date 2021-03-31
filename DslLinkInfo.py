@@ -44,6 +44,19 @@ class DslLinkInfo():
 
 
     def internet_page(self, internet_page, timeout=10):
+        # Test if "Another User is configuring the device" page is shown
+
+        # Wait for page to load (until Apply Button is loaded)
+        try:
+            btn_apply = WebDriverWait(self.driver, timeout-(timeout/2)).until(
+                EC.element_to_be_clickable((By.ID, 'Btn_apply'))
+            )
+            # Click Internet tab
+            btn_apply.click()
+
+        except TimeoutException:
+            pass
+
         # Wait for page to load (until Internet tab is loaded)
         try:
             nav_internet = WebDriverWait(self.driver, timeout).until(
