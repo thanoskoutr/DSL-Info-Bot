@@ -7,6 +7,9 @@ env
 # Python Cache
 __pycache__
 
+# Gecko Driver Logs
+geckodriver.log
+
 # CSV file with data
 dsl_info.csv
 

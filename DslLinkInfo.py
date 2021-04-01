@@ -8,16 +8,23 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.chrome.options import Options
 
 class DslLinkInfo():
-    def __init__(self, headless=True):
-        chrome_options = Options()
+    def __init__(self, headless=True, browser='firefox'):
+        if browser == 'chrome':
+            options = webdriver.chrome.options.Options()
+        else:
+            options = webdriver.firefox.options.Options()
+
         if headless:
             # Run Chrome driver without GUI
-            chrome_options.add_argument("--headless")
+            options.add_argument("--headless")
+
         # Select Driver
-        self.driver = webdriver.Chrome(options=chrome_options)
+        if browser == 'chrome':
+            self.driver = webdriver.Chrome(options=options)
+        else:
+            self.driver = webdriver.Firefox(options=options)
 
     def __del__(self):
         self.driver.close()

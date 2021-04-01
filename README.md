@@ -53,7 +53,7 @@ Minimum Python version tested: `Python 3.6.9`
 Maximum Python version tested: `Python 3.8.5`
 
 ### Download Web-Driver for Selenium
-Selenium requires a driver to interface with the chosen browser. For this project the Chrome driver is used in *headless* mode in order to not require a GUI.
+Selenium requires a driver to interface with the chosen browser. For this project the Chrome and Firefox driver is supported, used in *headless* mode in order to not require a GUI.
 
 #### Install Chromium
 In order to use the chromium driver, chromium or chrome needs to be installed. If you have already a chrome installation in your system, there is nothing to be done. Else, install a chrome version.
@@ -88,12 +88,43 @@ Extract the driver, using `unzip`:
 unzip chromedriver_linux64.zip
 ```
 
+#### Install Mozilla Firefox
+In order to use the firefox driver, Firefox needs to be installed. If you have already a Firefox installation in your system, there is nothing to be done. Else, install a Firefox version.
+
+For Ubuntu/Debian Distros, install from th default package repository:
+```bash
+sudo apt install firefox
+```
+
+#### Download Firefox Driver
+Download the Firefox browser driver, based on the installed Firefox version in your system from this link: 
+
+https://github.com/mozilla/geckodriver/releases
+
+Check Firefox version:
+```bash
+firefox --version
+```
+
+For the latest Firefox version driver, for Linux 64-bit, download with:
+```bash
+wget https://github.com/mozilla/geckodriver/releases/download/v0.29.0/geckodriver-v0.29.0-linux64.tar.gz
+```
+
+Extract the driver, using `tar`:
+```bash
+tar -zxvf geckodriver-v0.29.0-linux64.tar.gz
+```
+
 #### Add driver to PATH
 In order for selenium to use the binary driver, it has to be in the `PATH` environmental variable. The preferred place for local binaries is to place the driver in the `/usr/local/bin` directory:
 ```bash
-# Example for Chrome Driver
+# For Chrome Driver
 # Run from the location where your binary is downloaded and extracted
 sudo mv chromedriver /usr/local/bin
+# For Firefox Driver
+# Run from the location where your binary is downloaded and extracted
+sudo mv geckodriver /usr/local/bin
 ```
 
 #### Selenium Guides - Documentation

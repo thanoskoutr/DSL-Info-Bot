@@ -22,7 +22,7 @@ if __name__ == "__main__":
     router_password = os.environ.get('ROUTER_PASSWORD')
 
     # Class object
-    dsl_link_info = DslLinkInfo(headless=True)
+    dsl_link_info = DslLinkInfo(headless=True, browser='chrome')
 
     # Log-in
     dsl_link_info.login(router_page, router_username, router_password)
