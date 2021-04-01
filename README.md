@@ -154,7 +154,30 @@ From the project's top directory, run:
 ```bash
 python3 main.py
 ```
-A file named `dsl-info.csv` should be created in the directory that contains the fetched info.
+
+- A file named `dsl-info.csv` should be created in the directory that contains the fetched info.
+- Firefox is the default browser, running without GUI.
+
+#### Run Program with arguments
+From the project's top directory, run with `help` option to see all available options:
+```
+$ python3 main.py -h
+
+usage: main.py [-h] [-d {firefox,chrome}] [--headless {True,False}] [-t TIMEOUT] [-f FILE]
+
+DSL-Info-Bot - A python bot, that uses Selenium, in order to automatically access the Router/Modem's web-based setup page and get DSL Link
+info.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -d {firefox,chrome}, --driver {firefox,chrome}
+                        The browser driver to use.
+  --headless {True,False}
+                        Run without a GUI.
+  -t TIMEOUT, --timeout TIMEOUT
+                        The maximum time to wait for page loading.
+  -f FILE, --file FILE  The file name of the csv where the data will be saved.
+```
 
 ### Create a Cron Job
 In order to run the script after a time interval on a linux machine:
