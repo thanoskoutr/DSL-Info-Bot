@@ -133,10 +133,11 @@ Open crontab:
 crontab -e
 ```
 
-Run script every 5 minutes:
+In order to run the script every 5 minutes, change the path to the repo accordingly:
 ```bash
-*/5 * * * * export PATH="/usr/local/bin:$PATH" && python3 /path/to/DSL-Info-Bot/main.py
+*/5 * * * * /usr/bin/env bash -c 'export PATH="/usr/local/bin:$PATH" && source /path/to/DSL-Info-Bot/env/bin/activate && python3 /path/to/DSL-Info-Bot/main.py'
+
 ```
-We export the `PATH` variable in order for cron to be able to find the driver.
+We need to use the bash shell in order to execute the `source` command and we need to export the `PATH` variable in order for cron to be able to find the driver.
 
 The `dsl-info.csv` file should be created or updated in the repo directory.
