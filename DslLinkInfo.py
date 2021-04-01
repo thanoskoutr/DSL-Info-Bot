@@ -19,8 +19,7 @@ class DslLinkInfo():
         # Select Driver
         self.driver = webdriver.Chrome(options=chrome_options)
 
-
-    def close_driver(self):
+    def __del__(self):
         self.driver.close()
 
 
@@ -66,7 +65,7 @@ class DslLinkInfo():
             nav_internet.click()
 
         except TimeoutException:
-            self.close_driver()
+            self.driver.close()
             raise TimeoutException('Timed out waiting for page to load.')
 
 
@@ -108,7 +107,7 @@ class DslLinkInfo():
             return self.dsl_link_info_dict
 
         except TimeoutException:
-            self.close_driver()
+            self.driver.close()
             raise TimeoutException('Timed out waiting for page to load.')
 
 

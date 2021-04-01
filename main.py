@@ -22,7 +22,7 @@ if __name__ == "__main__":
     router_password = os.environ.get('ROUTER_PASSWORD')
 
     # Class object
-    dsl_link_info = DslLinkInfo()
+    dsl_link_info = DslLinkInfo(headless=True)
 
     # Log-in
     dsl_link_info.login(router_page, router_username, router_password)
@@ -53,4 +53,4 @@ if __name__ == "__main__":
     # time.sleep(2)
 
     # Close Driver
-    dsl_link_info.close_driver()
+    # dsl_link_info.close_driver()
