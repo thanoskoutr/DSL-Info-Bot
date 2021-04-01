@@ -72,7 +72,6 @@ class DslLinkInfo():
             nav_internet.click()
 
         except TimeoutException:
-            self.driver.close()
             raise TimeoutException('Timed out waiting for page to load.')
 
 
@@ -114,7 +113,6 @@ class DslLinkInfo():
             return self.dsl_link_info_dict
 
         except TimeoutException:
-            self.driver.close()
             raise TimeoutException('Timed out waiting for page to load.')
 
 
