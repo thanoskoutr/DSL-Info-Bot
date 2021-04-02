@@ -54,7 +54,7 @@ class DslLinkInfo():
 
         # Wait for page to load (until Apply Button is loaded)
         try:
-            btn_apply = WebDriverWait(self.driver, timeout-(timeout/2)).until(
+            btn_apply = WebDriverWait(self.driver, timeout/2).until(
                 EC.element_to_be_clickable((By.ID, 'Btn_apply'))
             )
             # Click Internet tab
