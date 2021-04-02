@@ -195,3 +195,14 @@ In order to run the script every 5 minutes, change the path to the repo accordin
 We need to use the bash shell in order to execute the `source` command and we need to export the `PATH` variable in order for cron to be able to find the driver.
 
 The `dsl-info.csv` file should be created or updated in the repo directory.
+
+
+## To-Do
+
+- [ ] ! Fix waiting time (Timeout) for ButtonApply
+- [ ] Create Classes for other Routers/Modems
+- [ ] Check for corner cases Errors
+- [ ] Add more arguments (?)
+- [ ] Make Class Methods more abstract
+- [ ] Add comments for Documentation
+- [ ] Setup File Structure
