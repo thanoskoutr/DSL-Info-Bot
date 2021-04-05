@@ -1,6 +1,7 @@
 import os
 import csv
 import time
+from pathlib import Path
 
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
@@ -129,4 +130,19 @@ class DslLinkInfo():
             csv_writer = csv.DictWriter(csv_fd, fieldnames=csv_columns)
             # Add contents as last row in the csv file
             csv_writer.writerow(data)
+
+        # Save results headers
+        # Get CSV file name
+        csv_file_name = csv_file.parts[-1]
+        # Get CSV's path without the filename
+        csv_dir_path = Path(*csv_file.parts[:-1])
+        # Create the headers file from name of CSV file
+        csv_headers_file_name = csv_file_name.split('.')[0]+'_headers.'+csv_file_name.split('.')[1]
+        # Join CSV's path with new filename
+        csv_headers_file = csv_dir_path.joinpath(csv_headers_file_name)
+        with open(csv_headers_file, mode='w') as csv_fd:
+            # Create a writer object from csv module
+            csv_writer = csv.writer(csv_fd)
+            # Add contents as last row in the csv file
+            csv_writer.writerow(csv_columns)
 

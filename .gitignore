@@ -11,7 +11,7 @@ __pycache__
 geckodriver.log
 
 # CSV file with data
-dsl_info.csv
+*.csv
 
 # Ignore docs
 docs
