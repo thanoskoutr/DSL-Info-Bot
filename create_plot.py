@@ -149,4 +149,6 @@ if __name__ == "__main__":
     # fig.show()
 
     # Save figure as interactive HTML
-    fig.write_html("plot.html")
+    dir_path = Path(__file__).parent.absolute()
+    plot_html = dir_path.joinpath('plot.html')
+    fig.write_html(str(plot_html))
