@@ -1,6 +1,7 @@
 import argparse
 import csv
 import datetime
+from pathlib import Path
 import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -31,18 +32,27 @@ if __name__ == "__main__":
         visualize the data in the csv file.""")
 
     parser.add_argument('-c', '--csv',
-                        default='dsl_info.csv',
+                        # default='dsl_info.csv',
                         help='The file name of the csv with the data.')
     parser.add_argument('-d', '--csv_headers',
-                        default='dsl_info_headers.csv',
+                        # default='dsl_info_headers.csv',
                         help='The file name of the csv with the data headers.')
 
     # Execute parse_args()
     args = parser.parse_args()
 
-    # Assign args
-    csv_file = args.csv
-    csv_headers_file = args.csv_headers
+    # Check if csv option given
+    if args.csv is None:
+        dir_path = Path(__file__).parent.absolute()
+        csv_file = dir_path.joinpath('dsl_info.csv')
+    else:
+        csv_file = args.csv
+    # Check if csv_headers option given
+    if  args.csv_headers is None:
+        dir_path = Path(__file__).parent.absolute()
+        csv_headers_file = dir_path.joinpath('dsl_info_headers.csv')
+    else:
+        csv_headers_file = args.csv_headers
 
     # Dictionary for CSV data
     data = {}
