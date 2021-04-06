@@ -90,7 +90,7 @@ if __name__ == "__main__":
 
     # Create Dataframe from data dictionary
     df_data = pd.DataFrame.from_dict(data)
-    print(df_data)
+    # print(df_data)
     df_data = df_data.set_index('current_date')
 
     # Delete non-error like columns (TEMP)
