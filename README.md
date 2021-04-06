@@ -52,6 +52,12 @@ pip3 install -r requirements.txt
 Minimum Python version tested: `Python 3.6.9`
 Maximum Python version tested: `Python 3.8.5`
 
+##### Dependencies
+You can install manually, without a virtual environment, the project dependencies:
+- `selenium`
+- `pandas`
+- `plotly`
+
 ### Download Web-Driver for Selenium
 Selenium requires a driver to interface with the chosen browser. For this project the Chrome and Firefox driver is supported, used in *headless* mode in order to not require a GUI.
 
@@ -155,7 +161,8 @@ From the project's top directory, run:
 python3 main.py
 ```
 
-- A file named `dsl-info.csv` should be created in the directory that contains the fetched info.
+- A file named `dsl_info.csv` should be created in the directory that contains the fetched info.
+- A file named `dsl_info_headers.csv` should be created in the directory that contains the info headers.
 - Firefox is the default browser, running without GUI.
 
 #### Run Program with arguments
@@ -179,6 +186,39 @@ optional arguments:
   -f FILE, --file FILE  The file name of the csv where the data will be saved.
 ```
 
+### Run Plot Script
+From the project's top directory, run:
+```bash
+python3 create_plot.py
+```
+- Reads the `.csv` files with the headers and the data
+- Creates a `plot.html` file that can be viewed on a browser.
+
+#### Run Plot Script with arguments
+From the project's top directory, run with `help` option to see all available options:
+```
+$ python3 create_plot.py -h
+
+usage: create_plot.py [-h] [-c CSV] [-d CSV_HEADERS]
+
+A plot script in order to visualize the data in the csv file.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c CSV, --csv CSV     The file name of the csv with the data.
+  -d CSV_HEADERS, --csv_headers CSV_HEADERS
+                        The file name of the csv with the data headers.
+```
+
+#### Serve Plot - View on Browser
+If you are in a headless environment you can serve the `.html` files using the `http.server` python module.
+
+By running this command from the project's top directory, you'll be able to access the files in your directory through your browser at `localhost:8420`:
+```bash
+python3 -m http.server 8420
+```
+There are more elegant (and safe) ways to do this, but this is a quick and dirty solution.
+
 ### Create a Cron Job
 In order to run the script after a time interval on a linux machine:
 
@@ -190,8 +230,14 @@ crontab -e
 In order to run the script every 5 minutes, change the path to the repo accordingly:
 ```bash
 */5 * * * * /usr/bin/env bash -c 'export PATH="/usr/local/bin:$PATH" && source /path/to/DSL-Info-Bot/env/bin/activate && python3 /path/to/DSL-Info-Bot/main.py'
-
 ```
+
+In order to run the script, update the plot every 5 minutes and serve the html plot, change the path to the repo accordingly:
+```bash
+*/5 * * * * /usr/bin/env bash -c 'export PATH="/usr/local/bin:$PATH" && source /path/to/DSL-Info-Bot/env/bin/activate && python3 /path/to/DSL-Info-Bot/main.py && python3 /path/to/DSL-Info-Bot/create_plot.py'
+@reboot cd /path/to/DSL-Info-Bot && python3 -m http.server 8420 > /dev/null 2>&1
+```
+
 We need to use the bash shell in order to execute the `source` command and we need to export the `PATH` variable in order for cron to be able to find the driver.
 
 The `dsl-info.csv` file should be created or updated in the repo directory.
@@ -206,3 +252,5 @@ The `dsl-info.csv` file should be created or updated in the repo directory.
 - [ ] Make Class Methods more abstract
 - [ ] Add comments for Documentation
 - [ ] Setup File Structure
+- [ ] Plot: Make with classes / Make it reconfigurable
+- [ ] ! Plot: Add speedtest logs plot
