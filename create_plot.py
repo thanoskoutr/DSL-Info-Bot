@@ -117,7 +117,7 @@ if __name__ == "__main__":
             fig.add_trace(go.Scatter(y=df_data[key], x=df_data.index, name=df_data[key].name), secondary_y=False)
 
     # Add Titles
-    fig.update_layout(title='DSL Link Info Timeseries')
+    fig.update_layout(title='DSL Link Info - Time Series (Logs)')
     fig.update_xaxes(title_text='Date')
     fig.update_yaxes(title_text='<b>Errors</b>', secondary_y=False)
 
