@@ -1,5 +1,7 @@
 # DSL Info Bot
 
+![plot](images/plot_example.png)
+
 ## About
 A python bot, that uses Selenium, in order to automatically access the Router/Modem's web-based setup page and get DSL Link info.
  

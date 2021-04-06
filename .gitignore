@@ -14,7 +14,6 @@ geckodriver.log
 *.csv
 
 # Plots
-*.png
 *.html
 
 # Ignore docs
