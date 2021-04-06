@@ -76,7 +76,7 @@ if __name__ == "__main__":
             if line != '\n':
                 # Tokenize each row
                 tokens = line.split(',')
-                
+
                 # Append each row field to the correct data key
                 i = 0
                 for key in data:
@@ -98,26 +98,14 @@ if __name__ == "__main__":
                             data[key].append(tokens[i].strip())
                     i += 1
 
-                # print(tokens)
             line = csv_fd.readline()
-
-    # print(data)
 
     # Create Dataframe from data dictionary
     df_data = pd.DataFrame.from_dict(data)
-    # print(df_data)
     df_data = df_data.set_index('current_date')
-
-    # Delete non-error like columns (TEMP)
-    # try:
-    #     df_data = df_data.drop(['showtime_start_value'], axis=1)
-    # except KeyError:
-    #     pass
-    # print(df_data)
 
 
     # Create plot
-    # fig = go.Figure([go.Scatter(y=df_data[key], x=df_data.index, name=df_data[key].name) for key in df_data])
 
     # Create figure with secondary y-axis
     fig = make_subplots(specs=[[{'secondary_y': True}]])

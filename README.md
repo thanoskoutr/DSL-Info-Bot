@@ -53,7 +53,7 @@ Minimum Python version tested: `Python 3.6.9`
 Maximum Python version tested: `Python 3.8.5`
 
 ##### Dependencies
-You can install manually without a virtual environment the project dependencies:
+You can install manually, without a virtual environment, the project dependencies:
 - `selenium`
 - `pandas`
 - `plotly`
@@ -213,7 +213,7 @@ optional arguments:
 #### Serve Plot - View on Browser
 If you are in a headless environment you can serve the `.html` files using the `http.server` python module.
 
-By running this command from the project's top directory, you'll be able to access the files in your directory through your browser at localhost:8420:
+By running this command from the project's top directory, you'll be able to access the files in your directory through your browser at `localhost:8420`:
 ```bash
 python3 -m http.server 8420
 ```
@@ -252,6 +252,5 @@ The `dsl-info.csv` file should be created or updated in the repo directory.
 - [ ] Make Class Methods more abstract
 - [ ] Add comments for Documentation
 - [ ] Setup File Structure
-- [ ] Plot: Make with classes
-- [ ] Plot: Make it reconfigurable
+- [ ] Plot: Make with classes / Make it reconfigurable
 - [ ] ! Plot: Add speedtest logs plot
