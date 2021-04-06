@@ -254,5 +254,4 @@ The `dsl-info.csv` file should be created or updated in the repo directory.
 - [ ] Setup File Structure
 - [ ] Plot: Make with classes
 - [ ] Plot: Make it reconfigurable
-- [ ] !Plot: Add save output html (or not save) option
-- [ ] !Plot: Add speedtest logs plot
+- [ ] ! Plot: Add speedtest logs plot

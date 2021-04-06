@@ -37,6 +37,9 @@ if __name__ == "__main__":
     parser.add_argument('-d', '--csv_headers',
                         # default='dsl_info_headers.csv',
                         help='The file name of the csv with the data headers.')
+    parser.add_argument('-p', '--plot',
+                        default='plot.html',
+                        help='The file name of the html plot that will be created.')
 
     # Execute parse_args()
     args = parser.parse_args()
@@ -53,6 +56,8 @@ if __name__ == "__main__":
         csv_headers_file = dir_path.joinpath('dsl_info_headers.csv')
     else:
         csv_headers_file = args.csv_headers
+    # Assign args
+    plot_html = args.plot
 
     # Dictionary for CSV data
     data = {}
@@ -151,5 +156,5 @@ if __name__ == "__main__":
 
     # Save figure as interactive HTML
     dir_path = Path(__file__).parent.absolute()
-    plot_html = dir_path.joinpath('plot.html')
-    fig.write_html(str(plot_html))
+    plot_html_path = dir_path.joinpath(plot_html)
+    fig.write_html(str(plot_html_path))
