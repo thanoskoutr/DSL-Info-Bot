@@ -232,10 +232,12 @@ In order to run the script every 5 minutes, change the path to the repo accordin
 */5 * * * * /usr/bin/env bash -c 'export PATH="/usr/local/bin:$PATH" && source /path/to/DSL-Info-Bot/env/bin/activate && python3 /path/to/DSL-Info-Bot/main.py'
 ```
 
-In order to run the script and update the plot every 5 minutes, change the path to the repo accordingly:
+In order to run the script, update the plot every 5 minutes and serve the html plot, change the path to the repo accordingly:
 ```bash
 */5 * * * * /usr/bin/env bash -c 'export PATH="/usr/local/bin:$PATH" && source /path/to/DSL-Info-Bot/env/bin/activate && python3 /path/to/DSL-Info-Bot/main.py && python3 /path/to/DSL-Info-Bot/create_plot.py'
+@reboot cd /path/to/DSL-Info-Bot && python3 -m http.server 8420 > /dev/null 2>&1
 ```
+
 We need to use the bash shell in order to execute the `source` command and we need to export the `PATH` variable in order for cron to be able to find the driver.
 
 The `dsl-info.csv` file should be created or updated in the repo directory.
@@ -250,3 +252,7 @@ The `dsl-info.csv` file should be created or updated in the repo directory.
 - [ ] Make Class Methods more abstract
 - [ ] Add comments for Documentation
 - [ ] Setup File Structure
+- [ ] Plot: Make with classes
+- [ ] Plot: Make it reconfigurable
+- [ ] !Plot: Add save output html (or not save) option
+- [ ] !Plot: Add speedtest logs plot
