@@ -155,7 +155,8 @@ From the project's top directory, run:
 python3 main.py
 ```
 
-- A file named `dsl-info.csv` should be created in the directory that contains the fetched info.
+- A file named `dsl_info.csv` should be created in the directory that contains the fetched info.
+- A file named `dsl_info_headers.csv` should be created in the directory that contains the info headers.
 - Firefox is the default browser, running without GUI.
 
 #### Run Program with arguments
@@ -177,6 +178,29 @@ optional arguments:
   -t TIMEOUT, --timeout TIMEOUT
                         The maximum time to wait for page loading.
   -f FILE, --file FILE  The file name of the csv where the data will be saved.
+```
+
+### Run Plot Script
+From the project's top directory, run:
+```bash
+python3 create_plot.py
+```
+Reads the `.csv` files with the headers and the data and creates a plot that can be viewd on the browser. 
+
+#### Run Plot Script with arguments
+From the project's top directory, run with `help` option to see all available options:
+```
+$ python3 create_plot.py -h
+
+usage: create_plot.py [-h] [-c CSV] [-d CSV_HEADERS]
+
+A plot script in order to visualize the data in the csv file.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c CSV, --csv CSV     The file name of the csv with the data.
+  -d CSV_HEADERS, --csv_headers CSV_HEADERS
+                        The file name of the csv with the data headers.
 ```
 
 ### Create a Cron Job
