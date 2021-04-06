@@ -135,4 +135,8 @@ if __name__ == "__main__":
         )
     )
 
-    fig.show()
+    # Show figure on browser (on new port)
+    # fig.show()
+
+    # Save figure as interactive HTML
+    fig.write_html("plot.html")

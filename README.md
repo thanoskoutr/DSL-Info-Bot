@@ -52,6 +52,12 @@ pip3 install -r requirements.txt
 Minimum Python version tested: `Python 3.6.9`
 Maximum Python version tested: `Python 3.8.5`
 
+##### Dependencies
+You can install manually without a virtual environment the project dependencies:
+- `selenium`
+- `pandas`
+- `plotly`
+
 ### Download Web-Driver for Selenium
 Selenium requires a driver to interface with the chosen browser. For this project the Chrome and Firefox driver is supported, used in *headless* mode in order to not require a GUI.
 
@@ -185,7 +191,8 @@ From the project's top directory, run:
 ```bash
 python3 create_plot.py
 ```
-Reads the `.csv` files with the headers and the data and creates a plot that can be viewd on the browser. 
+- Reads the `.csv` files with the headers and the data
+- Creates a `plot.html` file that can be viewed on a browser.
 
 #### Run Plot Script with arguments
 From the project's top directory, run with `help` option to see all available options:
