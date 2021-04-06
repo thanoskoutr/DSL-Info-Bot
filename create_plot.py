@@ -1,7 +1,7 @@
 import argparse
 import csv
 import pandas as pd
-import plotly.express as px
+import plotly.graph_objects as go
 
 if __name__ == "__main__":
 
@@ -75,7 +75,15 @@ if __name__ == "__main__":
 
     # Create plot
 
-    fig = px.line(df_data)
+    # fig = px.line(df_data)
+    fig = go.Figure([go.Scatter(y=df_data[key], x=df_data.index, name=df_data[key].name) for key in df_data])
+
+    fig.update_layout(
+        yaxis_title='Errors',
+        xaxis_title=df_data.index.name,
+        # title='Continuous, variable value error bars',
+    )
+
 
     # Create Range Selector Slider and Buttons
     fig.update_xaxes(
