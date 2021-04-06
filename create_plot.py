@@ -83,10 +83,10 @@ if __name__ == "__main__":
                             data[key].append(tokens[i].strip())
                     i += 1
 
-                print(tokens)
+                # print(tokens)
             line = csv_fd.readline()
 
-    print(data)
+    # print(data)
 
     # Create Dataframe from data dictionary
     df_data = pd.DataFrame.from_dict(data)
