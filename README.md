@@ -210,6 +210,15 @@ optional arguments:
                         The file name of the csv with the data headers.
 ```
 
+#### Serve Plot - View on Browser
+If you are in a headless environment you can serve the `.html` files using the `http.server` python module.
+
+By running this command from the project's top directory, you'll be able to access the files in your directory through your browser at localhost:8420:
+```bash
+python3 -m http.server 8420
+```
+There are more elegant (and safe) ways to do this, but this is a quick and dirty solution.
+
 ### Create a Cron Job
 In order to run the script after a time interval on a linux machine:
 
@@ -221,7 +230,11 @@ crontab -e
 In order to run the script every 5 minutes, change the path to the repo accordingly:
 ```bash
 */5 * * * * /usr/bin/env bash -c 'export PATH="/usr/local/bin:$PATH" && source /path/to/DSL-Info-Bot/env/bin/activate && python3 /path/to/DSL-Info-Bot/main.py'
+```
 
+In order to run the script and update the plot every 5 minutes, change the path to the repo accordingly:
+```bash
+*/5 * * * * /usr/bin/env bash -c 'export PATH="/usr/local/bin:$PATH" && source /path/to/DSL-Info-Bot/env/bin/activate && python3 /path/to/DSL-Info-Bot/main.py && python3 /path/to/DSL-Info-Bot/create_plot.py'
 ```
 We need to use the bash shell in order to execute the `source` command and we need to export the `PATH` variable in order for cron to be able to find the driver.
 

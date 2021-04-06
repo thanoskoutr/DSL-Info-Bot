@@ -136,6 +136,7 @@ if __name__ == "__main__":
         rangeslider_visible=True,
         rangeselector=dict(
             buttons=list([
+                dict(count=1, label='1h', step='hour', stepmode='backward'),
                 dict(count=1, label='1d', step='day', stepmode='backward'),
                 dict(count=2, label='2d', step='day', stepmode='backward'),
                 dict(count=5, label='5d', step='day', stepmode='backward'),
