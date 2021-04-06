@@ -52,6 +52,8 @@ pip3 install -r requirements.txt
 Minimum Python version tested: `Python 3.6.9`
 Maximum Python version tested: `Python 3.8.5`
 
+> On some systems, pip displays an error message about the wheel package when installing tornado. This is a known issue, you can usually ignore the error.
+
 ### Download Web-Driver for Selenium
 Selenium requires a driver to interface with the chosen browser. For this project the Chrome and Firefox driver is supported, used in *headless* mode in order to not require a GUI.
 

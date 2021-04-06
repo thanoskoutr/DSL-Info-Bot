@@ -15,6 +15,7 @@ geckodriver.log
 
 # Plots
 *.png
+*.html
 
 # Ignore docs
 docs
