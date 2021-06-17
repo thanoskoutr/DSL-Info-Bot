@@ -244,6 +244,46 @@ We need to use the bash shell in order to execute the `source` command and we ne
 
 The `dsl-info.csv` file should be created or updated in the repo directory.
 
+## InfluxDB
+In order to add `dsl_info.csv` to a InfluxDB Bucket, we have to convert theme using the `convert_times.py` script that converts the `showtime_start_value` and the `current_date` values to `duration` and `timestamp` data formats that InfluxDB can process. 
+
+To do that, create a new `dsl_info.csv` file:
+```bash
+mv dsl_info.csv dsl_info_influxdb.csv
+```
+
+And convert the fields on the new `dsl_info_influxdb.csv` file:
+```bash
+python3 convert_times.py dsl_info_influxdb.csv
+```
+
+Now we can add them to a `DSL-Info` bucket using the following commands, by passing only one measurement at each time:
+```bash
+influx write dryrun -b DSL-Info -f dsl_info_influxdb.csv \
+--header "#constant measurement,errors" \
+--header "#datatype long,ignored,ignored,ignored,ignored,dateTime:RFC3339" \
+--header "errors_crc_up,errors_crc_down,errors_fec_up,errors_fec_down,showtime_start_value,current_date"
+
+influx write dryrun -b DSL-Info -f dsl_info_influxdb.csv \
+--header "#constant measurement,errors" \
+--header "#datatype ignored,long,ignored,ignored,ignored,dateTime:RFC3339" \
+--header "errors_crc_up,errors_crc_down,errors_fec_up,errors_fec_down,showtime_start_value,current_date"
+
+influx write dryrun -b DSL-Info -f dsl_info_influxdb.csv \
+--header "#constant measurement,errors" \
+--header "#datatype ignored,ignored,long,ignored,ignored,dateTime:RFC3339" \
+--header "errors_crc_up,errors_crc_down,errors_fec_up,errors_fec_down,showtime_start_value,current_date"
+
+influx write dryrun -b DSL-Info -f dsl_info_influxdb.csv \
+--header "#constant measurement,errors" \
+--header "#datatype ignored,ignored,ignored,long,ignored,dateTime:RFC3339" \
+--header "errors_crc_up,errors_crc_down,errors_fec_up,errors_fec_down,showtime_start_value,current_date"
+
+influx write -b DSL-Info -f dsl_info_influxdb.csv \
+--header "#constant measurement,errors" \
+--header "#datatype ignored,ignored,ignored,ignored,duration,dateTime:RFC3339" \
+--header "errors_crc_up,errors_crc_down,errors_fec_up,errors_fec_down,showtime_start_value,current_date"
+```
 
 ## To-Do
 
@@ -256,3 +296,5 @@ The `dsl-info.csv` file should be created or updated in the repo directory.
 - [ ] Setup File Structure
 - [ ] Plot: Make with classes / Make it reconfigurable
 - [ ] ! Plot: Add speedtest logs plot
+- [ ] InfluxDB: Add types
+- [ ] InfluxDB: Find best representation
