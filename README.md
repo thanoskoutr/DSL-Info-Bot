@@ -3,7 +3,9 @@
 ![plot](images/plot_example.png)
 
 ## About
-A python bot, that uses Selenium, in order to automatically access the Router/Modem's web-based setup page and get DSL Link info.
+A python bot, that uses Selenium, in order to automatically access the Router/Modem's web-based setup page and get DSL Link info. It uses Plotly to create an interactive Plot as an HTML web page.
+
+It also supports the export of the data to an InfluxDB bucket for further monitoring and visualizing.
  
 Currently gets the following info:
 - CRC Errors
@@ -12,6 +14,20 @@ Currently gets the following info:
 
 Support for the following Routers/Modems:
 - ZTE Nova Routers (H267N, H288A, ...)
+
+## Table of Contents
+- [About](#about)
+- [Table of Contents](#table-of-contents)
+- [Instalation](#instalation)
+  - [Clone Repository](#clone-repository)
+  - [Python Virtual Environment](#python-virtual-environment)
+  - [Download Web-Driver for Selenium](#download-web-driver-for-selenium)
+  - [Add Environmental Variables](#add-environmental-variables)
+- [Run Program](#run-program)
+- [Run Plot Script](#run-plot-script)
+- [Create a Cron Job](#create-a-cron-job)
+- [InfluxDB](#influxdb)
+- [To-Do](#to-do)
 
 ## Instalation
 
@@ -157,7 +173,7 @@ ROUTER_USERNAME=username
 ROUTER_PASSWORD=password
 ```
 
-### Run Program
+## Run Program
 From the project's top directory, run:
 ```bash
 python3 main.py
@@ -167,7 +183,7 @@ python3 main.py
 - A file named `dsl_info_headers.csv` should be created in the directory that contains the info headers.
 - Firefox is the default browser, running without GUI.
 
-#### Run Program with arguments
+### Run Program with arguments
 From the project's top directory, run with `help` option to see all available options:
 ```
 $ python3 main.py -h
@@ -188,7 +204,7 @@ optional arguments:
   -f FILE, --file FILE  The file name of the csv where the data will be saved.
 ```
 
-### Run Plot Script
+## Run Plot Script
 From the project's top directory, run:
 ```bash
 python3 create_plot.py
@@ -196,7 +212,7 @@ python3 create_plot.py
 - Reads the `.csv` files with the headers and the data
 - Creates a `plot.html` file that can be viewed on a browser.
 
-#### Run Plot Script with arguments
+### Run Plot Script with arguments
 From the project's top directory, run with `help` option to see all available options:
 ```
 $ python3 create_plot.py -h
@@ -212,7 +228,7 @@ optional arguments:
                         The file name of the csv with the data headers.
 ```
 
-#### Serve Plot - View on Browser
+### Serve Plot - View on Browser
 If you are in a headless environment you can serve the `.html` files using the `http.server` python module.
 
 By running this command from the project's top directory, you'll be able to access the files in your directory through your browser at `localhost:8420`:
@@ -221,7 +237,7 @@ python3 -m http.server 8420
 ```
 There are more elegant (and safe) ways to do this, but this is a quick and dirty solution.
 
-### Create a Cron Job
+## Create a Cron Job
 In order to run the script after a time interval on a linux machine:
 
 Open crontab:
