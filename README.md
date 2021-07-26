@@ -3,9 +3,9 @@
 ![plot](images/plot_example.png)
 
 ## About
-A python bot, that uses Selenium, in order to automatically access the Router/Modem's web-based setup page and get DSL Link info. It uses Plotly to create an interactive Plot as an HTML web page.
+A python bot, that uses [Selenium](https://www.selenium.dev/), in order to automatically access the Router/Modem's web-based setup page and get DSL Link info. It uses [Plotly](https://plotly.com/) to create an interactive Plot as an HTML web page.
 
-It also supports the export of the data to an InfluxDB bucket for further monitoring and visualizing.
+It also supports the export of the data to an [InfluxDB](https://www.influxdata.com/) Bucket for further monitoring and visualizing.
  
 Currently gets the following info:
 - CRC Errors
