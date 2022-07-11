@@ -101,9 +101,9 @@ sudo apt install ./google-chrome-stable_current_amd64.deb
 ```
 
 #### Download Chrome Driver
-Download the chrome browser driver, based on the installed chromium version in your system from this link: 
+Download the chrome browser driver, based on the installed chromium version in your system from this [link](https://sites.google.com/chromium.org/driver/) 
 
-https://sites.google.com/a/chromium.org/chromedriver/downloads
+
 
 Check Chrome version:
 ```bash
