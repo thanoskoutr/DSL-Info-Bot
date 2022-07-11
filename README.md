@@ -136,9 +136,7 @@ sudo pacman -S firefox
 
 
 #### Download Firefox Driver
-Download the Firefox browser driver, based on the installed Firefox version in your system from this link: 
-
-https://github.com/mozilla/geckodriver/releases
+Download the Firefox browser driver, based on the installed Firefox version in your system from this [link](https://github.com/mozilla/geckodriver/releases)
 
 Check Firefox version:
 ```bash
@@ -147,7 +145,7 @@ firefox --version
 
 For the latest Firefox version driver, for Linux 64-bit, download with:
 ```bash
-wget https://github.com/mozilla/geckodriver/releases/download/v0.29.0/geckodriver-v0.29.0-linux64.tar.gz
+wget https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckodriver-v0.31.0-linux64.tar.gz
 ```
 
 Extract the driver, using `tar`:
