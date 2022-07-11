@@ -1,20 +1,6 @@
 # DSL Info Bot
 
 ![plot](images/plot_example.png)
-
-## About
-A python bot, that uses [Selenium](https://www.selenium.dev/), in order to automatically access the Router/Modem's web-based setup page and get DSL Link info. It uses [Plotly](https://plotly.com/) to create an interactive Plot as an HTML web page.
-
-It also supports the export of the data to an [InfluxDB](https://www.influxdata.com/) Bucket for further monitoring and visualizing.
- 
-Currently gets the following info:
-- CRC Errors
-- FEC Errors
-- Showtime_start
-
-Support for the following Routers/Modems:
-- ZTE Nova Routers (H267N, H288A, ...)
-
 ## Table of Contents
 - [About](#about)
 - [Table of Contents](#table-of-contents)
@@ -28,6 +14,20 @@ Support for the following Routers/Modems:
 - [Create a Cron Job](#create-a-cron-job)
 - [InfluxDB](#influxdb)
 - [To-Do](#to-do)
+
+
+## About
+A python bot, that uses [Selenium](https://www.selenium.dev/), in order to automatically access the Router/Modem's web-based setup page and get DSL Link info. It uses [Plotly](https://plotly.com/) to create an interactive Plot as an HTML web page.
+
+It also supports the export of the data to an [InfluxDB](https://www.influxdata.com/) Bucket for further monitoring and visualizing.
+ 
+Currently gets the following info:
+- CRC Errors
+- FEC Errors
+- Showtime_start
+
+Support for the following Routers/Modems:
+- ZTE Nova Routers (H267N, H288A, ...)
 
 ## Instalation
 
@@ -72,10 +72,18 @@ Maximum Python version tested: `Python 3.8.5`
 
 ##### Dependencies
 You can install manually, without a virtual environment, the project dependencies:
-- `selenium`
-- `pandas`
-- `plotly`
-
+- [selenium](https://pypi.org/project/selenium/)
+```bash
+pip install selenium 
+```
+- [pandas](https://pypi.org/project/pandas/)
+```bash
+pip install pandas 
+```
+- [plotly](pip install plotly)
+```bash
+pip install plotly 
+```
 ### Download Web-Driver for Selenium
 Selenium requires a driver to interface with the chosen browser. For this project the Chrome and Firefox driver is supported, used in *headless* mode in order to not require a GUI.
 
