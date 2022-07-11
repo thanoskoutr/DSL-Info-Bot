@@ -80,7 +80,7 @@ pip install selenium
 ```bash
 pip install pandas 
 ```
-- [plotly](pip install plotly)
+- [plotly](https://pypi.org/project/plotly/)
 ```bash
 pip install plotly 
 ```
