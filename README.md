@@ -121,12 +121,19 @@ unzip chromedriver_linux64.zip
 ```
 
 #### Install Mozilla Firefox
-In order to use the firefox driver, Firefox needs to be installed. If you have already a Firefox installation in your system, there is nothing to be done. Else, install a Firefox version.
+In order to use the firefox driver, Firefox needs to be installed. If you have already a Firefox installation in your system, there is nothing to be done. Else, install a Firefox version from [here](https://www.mozilla.org/en-US/firefox/download/thanks/) or: 
 
-For Ubuntu/Debian Distros, install from th default package repository:
+For Ubuntu/Debian Distros
 ```bash
 sudo apt install firefox
 ```
+
+For Arch/Arch based Distros
+```bash
+sudo pacman -S firefox
+```
+
+
 
 #### Download Firefox Driver
 Download the Firefox browser driver, based on the installed Firefox version in your system from this link: 
