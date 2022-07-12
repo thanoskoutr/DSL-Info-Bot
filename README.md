@@ -1,6 +1,19 @@
 # DSL Info Bot
 
 ![plot](images/plot_example.png)
+## Table of Contents
+- [About](#about)
+- [Instalation](#instalation)
+  - [Clone Repository](#clone-repository)
+  - [Python Virtual Environment](#python-virtual-environment)
+  - [Download Web-Driver for Selenium](#download-web-driver-for-selenium)
+  - [Add Environmental Variables](#add-environmental-variables)
+- [Run Program](#run-program)
+- [Run Plot Script](#run-plot-script)
+- [Create a Cron Job](#create-a-cron-job)
+- [InfluxDB](#influxdb)
+- [To-Do](#to-do)
+
 
 ## About
 A python bot, that uses [Selenium](https://www.selenium.dev/), in order to automatically access the Router/Modem's web-based setup page and get DSL Link info. It uses [Plotly](https://plotly.com/) to create an interactive Plot as an HTML web page.
@@ -14,20 +27,6 @@ Currently gets the following info:
 
 Support for the following Routers/Modems:
 - ZTE Nova Routers (H267N, H288A, ...)
-
-## Table of Contents
-- [About](#about)
-- [Table of Contents](#table-of-contents)
-- [Instalation](#instalation)
-  - [Clone Repository](#clone-repository)
-  - [Python Virtual Environment](#python-virtual-environment)
-  - [Download Web-Driver for Selenium](#download-web-driver-for-selenium)
-  - [Add Environmental Variables](#add-environmental-variables)
-- [Run Program](#run-program)
-- [Run Plot Script](#run-plot-script)
-- [Create a Cron Job](#create-a-cron-job)
-- [InfluxDB](#influxdb)
-- [To-Do](#to-do)
 
 ## Instalation
 
@@ -72,10 +71,18 @@ Maximum Python version tested: `Python 3.8.5`
 
 ##### Dependencies
 You can install manually, without a virtual environment, the project dependencies:
-- `selenium`
-- `pandas`
-- `plotly`
-
+- [selenium](https://pypi.org/project/selenium/)
+```bash
+pip install selenium 
+```
+- [pandas](https://pypi.org/project/pandas/)
+```bash
+pip install pandas 
+```
+- [plotly](https://pypi.org/project/plotly/)
+```bash
+pip install plotly 
+```
 ### Download Web-Driver for Selenium
 Selenium requires a driver to interface with the chosen browser. For this project the Chrome and Firefox driver is supported, used in *headless* mode in order to not require a GUI.
 
@@ -93,9 +100,9 @@ sudo apt install ./google-chrome-stable_current_amd64.deb
 ```
 
 #### Download Chrome Driver
-Download the chrome browser driver, based on the installed chromium version in your system from this link: 
+Download the chrome browser driver, based on the installed chromium version in your system from this [link](https://sites.google.com/chromium.org/driver/) 
 
-https://sites.google.com/a/chromium.org/chromedriver/downloads
+
 
 Check Chrome version:
 ```bash
@@ -113,17 +120,22 @@ unzip chromedriver_linux64.zip
 ```
 
 #### Install Mozilla Firefox
-In order to use the firefox driver, Firefox needs to be installed. If you have already a Firefox installation in your system, there is nothing to be done. Else, install a Firefox version.
+In order to use the firefox driver, Firefox needs to be installed. If you have already a Firefox installation in your system, there is nothing to be done. Else, install a Firefox version from [here](https://www.mozilla.org/en-US/firefox/download/thanks/) or: 
 
-For Ubuntu/Debian Distros, install from th default package repository:
+For Ubuntu/Debian Distros
 ```bash
 sudo apt install firefox
 ```
 
-#### Download Firefox Driver
-Download the Firefox browser driver, based on the installed Firefox version in your system from this link: 
+For Arch/Arch based Distros
+```bash
+sudo pacman -S firefox
+```
 
-https://github.com/mozilla/geckodriver/releases
+
+
+#### Download Firefox Driver
+Download the Firefox browser driver, based on the installed Firefox version in your system from this [link](https://github.com/mozilla/geckodriver/releases)
 
 Check Firefox version:
 ```bash
@@ -132,7 +144,7 @@ firefox --version
 
 For the latest Firefox version driver, for Linux 64-bit, download with:
 ```bash
-wget https://github.com/mozilla/geckodriver/releases/download/v0.29.0/geckodriver-v0.29.0-linux64.tar.gz
+wget https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckodriver-v0.31.0-linux64.tar.gz
 ```
 
 Extract the driver, using `tar`:
