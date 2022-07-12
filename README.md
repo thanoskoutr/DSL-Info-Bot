@@ -3,7 +3,6 @@
 ![plot](images/plot_example.png)
 ## Table of Contents
 - [About](#about)
-- [Table of Contents](#table-of-contents)
 - [Instalation](#instalation)
   - [Clone Repository](#clone-repository)
   - [Python Virtual Environment](#python-virtual-environment)
